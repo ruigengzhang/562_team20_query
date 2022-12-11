@@ -5,8 +5,6 @@ import com.amazonaws.services.lambda.runtime.*;
 import saaf.Inspector;
 
 import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
 import java.sql.*;
 import java.util.HashMap;
 import java.util.LinkedList;
@@ -14,7 +12,7 @@ import java.util.List;
 import java.util.Properties;
 
 
-public class HelloMySQL implements RequestHandler<Request, HashMap<String, Object>> {
+public class Query implements RequestHandler<Request, HashMap<String, Object>> {
 
 
     public HashMap<String, Object> handleRequest(Request request, Context context) {
