@@ -15,15 +15,15 @@ public class Query implements RequestHandler<Request, HashMap<String, Object>> {
 
 
     public HashMap<String, Object> handleRequest(Request request, Context context) {
-
-        //****************START FUNCTION IMPLEMENTATION*************************
-
         Inspector inspector = new Inspector();
         LambdaLogger logger = context.getLogger();
 
+        logger.log("handleRequest");
+        //****************START FUNCTION IMPLEMENTATION*************************
+
+        logger.log(request.toString());
         HashMap<String, Object> result = new HashMap<>();
 
-        logger.log(String.valueOf(request));
         // Connect to database
         try {
             Connection connection = connectDatabase();
@@ -38,7 +38,7 @@ public class Query implements RequestHandler<Request, HashMap<String, Object>> {
             statement.close();
             connection.close();
         } catch (SQLException e) {
-            inspector.addAttribute("error", "Error while aggregating SQL from database");
+            inspector.addAttribute("error", "Error while execute SQL");
             inspector.addAttribute("stackTrace", e.getStackTrace());
         }
 
@@ -51,7 +51,7 @@ public class Query implements RequestHandler<Request, HashMap<String, Object>> {
 
 
     public Connection connectDatabase() {
-        Connection conn = null;
+        Connection conn;
 
         Properties properties = new Properties();
         try {
@@ -108,19 +108,19 @@ public class Query implements RequestHandler<Request, HashMap<String, Object>> {
         sb.append(base);
 
         if (!StringUtils.isNullOrEmpty(request.getRegion())) {
-            sb.append("and ").append("Region = ").append("`").append(request.getRegion()).append("`");
+            sb.append(" and ").append("Region = ").append("\"").append(request.getRegion()).append("\"");
         }
         if (!StringUtils.isNullOrEmpty(request.getCountry())) {
-            sb.append("and ").append("Country = ").append("`").append(request.getCountry()).append("`");
+            sb.append(" and ").append("Country = ").append("\"").append(request.getCountry()).append("\"");
         }
         if (!StringUtils.isNullOrEmpty(request.getItemType())) {
-            sb.append("and ").append("`Item Type` = ").append("`").append(request.getItemType()).append("`");
+            sb.append(" and ").append("`Item Type` = ").append("\"").append(request.getItemType()).append("\"");
         }
         if (!StringUtils.isNullOrEmpty(request.getOrderPriority())) {
-            sb.append("and ").append("`Order Priority` = ").append("`").append(request.getOrderPriority()).append("`");
+            sb.append(" and ").append("`Order Priority` = ").append("\"").append(request.getOrderPriority()).append("\"");
         }
         if (!StringUtils.isNullOrEmpty(request.getSalesChannel())) {
-            sb.append("and ").append("`Sales Channel` = ").append("`").append(request.getSalesChannel()).append("`");
+            sb.append(" and ").append("`Sales Channel` = ").append("\"").append(request.getSalesChannel()).append("\"");
         }
 
         logger.log("SQL: " + sb);
