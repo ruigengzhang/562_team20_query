@@ -1,30 +1,66 @@
 package lambda;
 
-/**
- *
- * @author Wes Lloyd
- */
+
 public class Request {
 
-    String name;
+    private String Region;
 
-    public String getName() {
-        return name;
-    }
-    
-    public String getNameALLCAPS() {
-        return name.toUpperCase();
-    }
+    private String ItemType;
 
-    public void setName(String name) {
-        this.name = name;
-    }
+    private String SalesChannel;
 
-    public Request(String name) {
-        this.name = name;
+    private String OrderPriority;
+
+    private String Country;
+
+    public String getRegion() {
+        return Region;
     }
 
-    public Request() {
+    public void setRegion(String region) {
+        Region = region;
+    }
 
+    public String getItemType() {
+        return ItemType;
+    }
+
+    public void setItemType(String itemType) {
+        ItemType = itemType;
+    }
+
+    public String getSalesChannel() {
+        return SalesChannel;
+    }
+
+    public void setSalesChannel(String salesChannel) {
+        SalesChannel = salesChannel;
+    }
+
+    public String getOrderPriority() {
+        return OrderPriority;
+    }
+
+    public void setOrderPriority(String orderPriority) {
+        OrderPriority = orderPriority;
+    }
+
+    public String getCountry() {
+        return Country;
+    }
+
+    public void setCountry(String country) {
+        Country = country;
+    }
+
+    @Override
+    public String toString() {
+        return "Request{" +
+                "Region='" + Region + '\'' +
+                ", ItemType='" + ItemType + '\'' +
+                ", SalesChannel='" + SalesChannel + '\'' +
+                ", OrderPriority='" + OrderPriority + '\'' +
+                ", Country='" + Country + '\'' +
+                '}';
     }
 }
