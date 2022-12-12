@@ -3,64 +3,64 @@ package lambda;
 
 public class Request {
 
-    private String Region;
+    private String region;
 
-    private String ItemType;
+    private String itemType;
 
-    private String SalesChannel;
+    private String salesChannel;
 
-    private String OrderPriority;
+    private String orderPriority;
 
-    private String Country;
+    private String country;
 
     public String getRegion() {
-        return Region;
+        return region;
     }
 
     public void setRegion(String region) {
-        Region = region;
+        this.region = region;
     }
 
     public String getItemType() {
-        return ItemType;
+        return itemType;
     }
 
     public void setItemType(String itemType) {
-        ItemType = itemType;
+        this.itemType = itemType;
     }
 
     public String getSalesChannel() {
-        return SalesChannel;
+        return salesChannel;
     }
 
     public void setSalesChannel(String salesChannel) {
-        SalesChannel = salesChannel;
+        this.salesChannel = salesChannel;
     }
 
     public String getOrderPriority() {
-        return OrderPriority;
+        return orderPriority;
     }
 
     public void setOrderPriority(String orderPriority) {
-        OrderPriority = orderPriority;
+        this.orderPriority = orderPriority;
     }
 
     public String getCountry() {
-        return Country;
+        return country;
     }
 
     public void setCountry(String country) {
-        Country = country;
+        this.country = country;
     }
 
     @Override
     public String toString() {
         return "Request{" +
-                "Region='" + Region + '\'' +
-                ", ItemType='" + ItemType + '\'' +
-                ", SalesChannel='" + SalesChannel + '\'' +
-                ", OrderPriority='" + OrderPriority + '\'' +
-                ", Country='" + Country + '\'' +
+                "Region='" + region + '\'' +
+                ", ItemType='" + itemType + '\'' +
+                ", SalesChannel='" + salesChannel + '\'' +
+                ", OrderPriority='" + orderPriority + '\'' +
+                ", Country='" + country + '\'' +
                 '}';
     }
 }
